@@ -1,0 +1,10 @@
+{
+  "name": "SmartFloorHeat",
+  "content_in_root": false,
+  "domains": ["smartfloorheat"],
+  "country": ["DK"],
+  "homeassistant": "2024.6.0",
+  "iot_class": "calculated",
+  "render_readme": true,
+  "zip_release": false
+}
