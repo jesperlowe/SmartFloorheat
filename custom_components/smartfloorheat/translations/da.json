@@ -1,0 +1,18 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "SmartFloorHeat",
+        "description": "Start opsætning"
+      },
+      "room": {
+        "title": "Tilføj rum",
+        "description": "Konfigurer ét rum"
+      },
+      "add_another": {
+        "title": "Tilføj endnu et rum",
+        "description": "Konfigurerede rum: {rooms}"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "SmartFloorHeat",
+        "description": "Start setup"
+      },
+      "room": {
+        "title": "Add room",
+        "description": "Configure one room controller"
+      },
+      "add_another": {
+        "title": "Add another room",
+        "description": "Configured rooms: {rooms}"
+      }
+    }
+  }
+}
