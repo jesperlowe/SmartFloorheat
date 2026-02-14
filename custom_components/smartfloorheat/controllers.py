@@ -22,9 +22,12 @@ from .const import (
     ATTR_OUTDOOR_DROP_GAIN,
     ATTR_TREND_CPH,
     BASE_SOURCE_CLIMATE,
+    BASE_SOURCE_NUMBER,
+    BASE_SOURCE_VIRTUAL,
     CONF_BASE_CLIMATE_ENTITY,
     CONF_BASE_NUMBER_ENTITY,
     CONF_BASE_SOURCE_TYPE,
+    CONF_BASE_VIRTUAL_TEMPERATURE,
     CONF_COMFORT_GUARD_DELTA,
     CONF_ENABLE_FLOW_GUARD,
     CONF_ENABLE_OUTDOOR,
@@ -123,7 +126,7 @@ class RoomController:
         ]
         if self.cfg[CONF_BASE_SOURCE_TYPE] == BASE_SOURCE_CLIMATE:
             watched.append(self.cfg[CONF_BASE_CLIMATE_ENTITY])
-        else:
+        elif self.cfg[CONF_BASE_SOURCE_TYPE] == BASE_SOURCE_NUMBER:
             watched.append(self.cfg[CONF_BASE_NUMBER_ENTITY])
         if self.cfg.get(CONF_OUTDOOR_TEMP_SENSOR):
             watched.append(self.cfg[CONF_OUTDOOR_TEMP_SENSOR])
@@ -172,8 +175,12 @@ class RoomController:
     def _base_setpoint(self) -> float:
         if self.cfg[CONF_BASE_SOURCE_TYPE] == BASE_SOURCE_CLIMATE:
             result = self._f(self.cfg[CONF_BASE_CLIMATE_ENTITY], "temperature")
-        else:
+        elif self.cfg[CONF_BASE_SOURCE_TYPE] == BASE_SOURCE_NUMBER:
             result = self._f(self.cfg[CONF_BASE_NUMBER_ENTITY])
+        elif self.cfg[CONF_BASE_SOURCE_TYPE] == BASE_SOURCE_VIRTUAL:
+            result = self.cfg.get(CONF_BASE_VIRTUAL_TEMPERATURE)
+        else:
+            result = None
         return result if result is not None else self.base_setpoint
 
     def _trim_window(self, buffer: deque[tuple[datetime, float]], now: datetime) -> None:

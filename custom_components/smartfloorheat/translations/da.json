@@ -7,11 +7,77 @@
       },
       "room": {
         "title": "Tilføj rum",
-        "description": "Konfigurer ét rum"
+        "description": "Konfigurer ét rum",
+        "data": {
+          "room_name": "Rum navn",
+          "indoor_temp_sensor": "Indendørs temperatursensor",
+          "weather_entity": "Vejr-entitet",
+          "outdoor_temp_sensor": "Udendørs temperatursensor (valgfri)",
+          "flow_temp_sensor": "Fremløbstemperatur sensor (valgfri)",
+          "base_source_type": "Kilde til basis setpunkt",
+          "base_climate_entity": "Basis climate-entitet",
+          "base_number_entity": "Basis number-entitet",
+          "base_virtual_temperature": "Virtuel basis temperatur",
+          "heater_switch": "Varme relæ/switch",
+          "solar_energy_current_hour": "Solenergi nuværende time",
+          "solar_energy_next_hour": "Solenergi næste time",
+          "solar_energy_today_remaining": "Solenergi rest i dag",
+          "solar_energy_tomorrow": "Solenergi i morgen",
+          "orientation_mode": "Husets orientering",
+          "orientation_degrees": "Orientering i grader",
+          "orientation_factor": "Orienteringsfaktor",
+          "wind_effect_percent": "Vindeffekt (%)",
+          "max_cooling_degC": "Maks sol-afkøling (°C)",
+          "max_wind_boost_degC": "Maks vind-boost (°C)",
+          "max_outdoor_boost_degC": "Maks udendørs boost (°C)",
+          "wind_base_kmh": "Vind basis (km/t)",
+          "wind_norm_kmh": "Vind normal (km/t)",
+          "outdoor_base_c": "Udendørs basis temperatur (°C)",
+          "outdoor_norm_c": "Udendørs normal temperatur (°C)",
+          "solar_norm_kwh": "Sol normal (kWh)",
+          "tau_hours": "Termisk træghed (timer)",
+          "comfort_guard_delta": "Komfort-vagt delta (°C)",
+          "flow_low_threshold": "Lav fremløbsgrænse (°C)",
+          "min_on_minutes": "Minimum tændtid (minutter)",
+          "min_off_minutes": "Minimum sluktid (minutter)",
+          "hysteresis_degC": "Hysterese (°C)",
+          "update_interval_seconds": "Opdateringsinterval (sekunder)",
+          "enable_solar_correction": "Aktivér sol-korrektion",
+          "enable_wind_correction": "Aktivér vind-korrektion",
+          "enable_outdoor_correction": "Aktivér udendørs-korrektion",
+          "enable_flow_guard": "Aktivér flow-vagt"
+        }
       },
       "add_another": {
         "title": "Tilføj endnu et rum",
-        "description": "Konfigurerede rum: {rooms}"
+        "description": "Konfigurerede rum: {rooms}",
+        "data": {
+          "action": "Næste handling"
+        }
+      }
+    },
+    "selector": {
+      "base_source_type": {
+        "options": {
+          "climate": "Climate-entitet",
+          "number": "Number-entitet",
+          "virtual": "Virtuel"
+        }
+      },
+      "orientation_mode": {
+        "options": {
+          "north": "Nord",
+          "south": "Syd",
+          "east": "Øst",
+          "west": "Vest",
+          "azimuth": "Azimut"
+        }
+      },
+      "action": {
+        "options": {
+          "add_room": "Tilføj endnu et rum",
+          "finish": "Afslut opsætning"
+        }
       }
     }
   }
