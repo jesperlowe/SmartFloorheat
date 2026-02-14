@@ -1,0 +1,33 @@
+recalculate:
+  name: Recalculate
+  description: Recalculate setpoint and output control
+  fields:
+    room:
+      required: false
+      selector:
+        text:
+
+set_mode:
+  name: Set mode
+  description: Set room mode to eco/comfort
+  fields:
+    room:
+      required: true
+      selector:
+        text:
+    mode:
+      required: true
+      selector:
+        select:
+          options:
+            - eco
+            - comfort
+
+reset_learning:
+  name: Reset learning
+  description: Reset trend buffers
+  fields:
+    room:
+      required: false
+      selector:
+        text:
