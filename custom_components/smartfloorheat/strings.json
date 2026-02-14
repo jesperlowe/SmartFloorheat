@@ -7,11 +7,77 @@
       },
       "room": {
         "title": "Add room",
-        "description": "Configure one room controller"
+        "description": "Configure one room controller",
+        "data": {
+          "room_name": "Room name",
+          "indoor_temp_sensor": "Indoor temperature sensor",
+          "weather_entity": "Weather entity",
+          "outdoor_temp_sensor": "Outdoor temperature sensor (optional)",
+          "flow_temp_sensor": "Flow temperature sensor (optional)",
+          "base_source_type": "Base setpoint source",
+          "base_climate_entity": "Base climate entity",
+          "base_number_entity": "Base number entity",
+          "base_virtual_temperature": "Virtual base temperature",
+          "heater_switch": "Heater switch",
+          "solar_energy_current_hour": "Solar energy current hour",
+          "solar_energy_next_hour": "Solar energy next hour",
+          "solar_energy_today_remaining": "Solar energy remaining today",
+          "solar_energy_tomorrow": "Solar energy tomorrow",
+          "orientation_mode": "House orientation",
+          "orientation_degrees": "Orientation in degrees",
+          "orientation_factor": "Orientation factor",
+          "wind_effect_percent": "Wind effect (%)",
+          "max_cooling_degC": "Max solar cooling (°C)",
+          "max_wind_boost_degC": "Max wind boost (°C)",
+          "max_outdoor_boost_degC": "Max outdoor boost (°C)",
+          "wind_base_kmh": "Wind base (km/h)",
+          "wind_norm_kmh": "Wind normal (km/h)",
+          "outdoor_base_c": "Outdoor base temperature (°C)",
+          "outdoor_norm_c": "Outdoor normal temperature (°C)",
+          "solar_norm_kwh": "Solar normal (kWh)",
+          "tau_hours": "Thermal inertia (hours)",
+          "comfort_guard_delta": "Comfort guard delta (°C)",
+          "flow_low_threshold": "Low flow threshold (°C)",
+          "min_on_minutes": "Minimum on-time (minutes)",
+          "min_off_minutes": "Minimum off-time (minutes)",
+          "hysteresis_degC": "Hysteresis (°C)",
+          "update_interval_seconds": "Update interval (seconds)",
+          "enable_solar_correction": "Enable solar correction",
+          "enable_wind_correction": "Enable wind correction",
+          "enable_outdoor_correction": "Enable outdoor correction",
+          "enable_flow_guard": "Enable flow guard"
+        }
       },
       "add_another": {
         "title": "Add another room",
-        "description": "Configured rooms: {rooms}"
+        "description": "Configured rooms: {rooms}",
+        "data": {
+          "action": "Next action"
+        }
+      }
+    },
+    "selector": {
+      "base_source_type": {
+        "options": {
+          "climate": "Climate entity",
+          "number": "Number entity",
+          "virtual": "Virtual"
+        }
+      },
+      "orientation_mode": {
+        "options": {
+          "north": "North",
+          "south": "South",
+          "east": "East",
+          "west": "West",
+          "azimuth": "Azimuth"
+        }
+      },
+      "action": {
+        "options": {
+          "add_room": "Add another room",
+          "finish": "Finish setup"
+        }
       }
     }
   }

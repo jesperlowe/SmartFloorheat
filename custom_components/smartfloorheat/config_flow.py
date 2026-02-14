@@ -13,9 +13,11 @@ from homeassistant.util import slugify
 from .const import (
     BASE_SOURCE_CLIMATE,
     BASE_SOURCE_NUMBER,
+    BASE_SOURCE_VIRTUAL,
     CONF_BASE_CLIMATE_ENTITY,
     CONF_BASE_NUMBER_ENTITY,
     CONF_BASE_SOURCE_TYPE,
+    CONF_BASE_VIRTUAL_TEMPERATURE,
     CONF_COMFORT_GUARD_DELTA,
     CONF_ENABLE_FLOW_GUARD,
     CONF_ENABLE_OUTDOOR,
@@ -77,8 +79,13 @@ class SmartFloorHeatConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             room[CONF_ROOM_ID] = slugify(room[CONF_ROOM_NAME])
             if room[CONF_BASE_SOURCE_TYPE] == BASE_SOURCE_CLIMATE:
                 room.pop(CONF_BASE_NUMBER_ENTITY, None)
+                room.pop(CONF_BASE_VIRTUAL_TEMPERATURE, None)
+            elif room[CONF_BASE_SOURCE_TYPE] == BASE_SOURCE_NUMBER:
+                room.pop(CONF_BASE_CLIMATE_ENTITY, None)
+                room.pop(CONF_BASE_VIRTUAL_TEMPERATURE, None)
             else:
                 room.pop(CONF_BASE_CLIMATE_ENTITY, None)
+                room.pop(CONF_BASE_NUMBER_ENTITY, None)
             if room[CONF_ORIENTATION_MODE] != ORIENTATION_AZIMUTH:
                 room.pop(CONF_ORIENTATION_DEGREES, None)
             self._rooms.append(room)
@@ -103,7 +110,7 @@ class SmartFloorHeatConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONF_BASE_SOURCE_TYPE, default=BASE_SOURCE_CLIMATE
                 ): selector.SelectSelector(
                     selector.SelectSelectorConfig(
-                        options=[BASE_SOURCE_CLIMATE, BASE_SOURCE_NUMBER], mode=selector.SelectSelectorMode.DROPDOWN
+                        options=[BASE_SOURCE_CLIMATE, BASE_SOURCE_NUMBER, BASE_SOURCE_VIRTUAL], mode=selector.SelectSelectorMode.DROPDOWN
                     )
                 ),
                 vol.Optional(CONF_BASE_CLIMATE_ENTITY): selector.EntitySelector(
@@ -111,6 +118,9 @@ class SmartFloorHeatConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 ),
                 vol.Optional(CONF_BASE_NUMBER_ENTITY): selector.EntitySelector(
                     selector.EntitySelectorConfig(domain=["number", "input_number"])
+                ),
+                vol.Optional(CONF_BASE_VIRTUAL_TEMPERATURE, default=DEFAULTS[CONF_BASE_VIRTUAL_TEMPERATURE]): selector.NumberSelector(
+                    selector.NumberSelectorConfig(min=5.0, max=35.0, step=0.5)
                 ),
                 vol.Required(CONF_HEATER_SWITCH): selector.EntitySelector(
                     selector.EntitySelectorConfig(domain=["switch"])

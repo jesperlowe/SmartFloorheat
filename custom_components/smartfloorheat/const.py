@@ -17,8 +17,10 @@ CONF_HEATER_SWITCH = "heater_switch"
 CONF_BASE_SOURCE_TYPE = "base_source_type"
 BASE_SOURCE_CLIMATE = "climate"
 BASE_SOURCE_NUMBER = "number"
+BASE_SOURCE_VIRTUAL = "virtual"
 CONF_BASE_CLIMATE_ENTITY = "base_climate_entity"
 CONF_BASE_NUMBER_ENTITY = "base_number_entity"
+CONF_BASE_VIRTUAL_TEMPERATURE = "base_virtual_temperature"
 
 CONF_SOLAR_CURRENT_HOUR = "solar_energy_current_hour"
 CONF_SOLAR_NEXT_HOUR = "solar_energy_next_hour"
@@ -94,6 +96,7 @@ DEFAULTS = {
     CONF_ENABLE_WIND: True,
     CONF_ENABLE_OUTDOOR: True,
     CONF_ENABLE_FLOW_GUARD: True,
+    CONF_BASE_VIRTUAL_TEMPERATURE: 21.0,
 }
 
 DEBUG_KEYS = (
